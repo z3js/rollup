@@ -404,7 +404,6 @@ export interface InputOptions {
 	context?: string;
 	experimentalCacheExpiry?: number;
 	experimentalOptimizeChunks?: boolean;
-	experimentalTopLevelAwait?: boolean;
 	external?: ExternalOption;
 	inlineDynamicImports?: boolean;
 	input?: InputOption;
