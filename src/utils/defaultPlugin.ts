@@ -116,11 +116,12 @@ const relativeUrlMechanisms: Record<string, (relativePath: string) => string> = 
 		if (relativePath[0] !== '.') relativePath = './' + relativePath;
 		return getResolveUrl(`require.toUrl('${relativePath}'), document.baseURI`);
 	},
-	cjs: relativePath =>
-		`(typeof document === 'undefined' ? ${getResolveUrl(
-			`'file:' + __dirname + '/${relativePath}'`,
-			`(require('u' + 'rl').URL)`
-		)} : ${getRelativeUrlFromDocument(relativePath)})`,
+// 	cjs: relativePath =>
+// 		`(typeof document === 'undefined' ? ${getResolveUrl(
+// 			`'file:' + __dirname + '/${relativePath}'`,
+// 			`(require('u' + 'rl').URL)`
+// 		)} : ${getRelativeUrlFromDocument(relativePath)})`,
+	cjs: relativePath => ``,
 	es: relativePath => getResolveUrl(`'${relativePath}', import.meta.url`),
 	iife: relativePath => getRelativeUrlFromDocument(relativePath),
 	system: relativePath => getResolveUrl(`'${relativePath}', module.meta.url`),
